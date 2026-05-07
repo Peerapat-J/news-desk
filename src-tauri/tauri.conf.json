@@ -1,0 +1,42 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "News Desk",
+  "version": "0.1.0",
+  "identifier": "com.peerapat.newsdesk",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "News Desk",
+        "width": 1440,
+        "height": 1000,
+        "minWidth": 1180,
+        "minHeight": 760,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "app",
+    "category": "Productivity",
+    "shortDescription": "Personal developer news dashboard",
+    "longDescription": "A local visual dashboard for twice-daily developer and AI news digests."
+  },
+  "plugins": {
+    "sql": {
+      "preload": ["sqlite:news-desk.db"]
+    }
+  }
+}
+
